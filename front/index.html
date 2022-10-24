@@ -11,19 +11,37 @@
             height: 200px;
             background: green;
         }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-top: 20px;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div id="box" class="box"></div>
+    <div id="box2" class="box2"></div>
+    <div id="box3" class="box3"></div>
 
     <script>
         const button = document.querySelector('#box');
+        const button2 = document.querySelector('#box2');
+        const button3 = document.querySelector('#box3');
 
         button.addEventListener('click', () => {
-            const url = "https://music-app-pl.herokuapp.com/getData";
+            const url = "http://localhost:8080/getData";
 
         const ob = {
-            userId: "444",
+            userId: "aaa",
         }
 
         const headers = new Headers();
@@ -38,6 +56,54 @@
             .then(res => {
                 console.log("Poszło");
                 console.log(res);
+            })
+        })
+
+        // dodanie do ulubinych
+        button2.addEventListener('click', () => {
+            const url = "http://localhost:8080/setFavouriteSong";
+
+        const ob = {
+            userId: "aaa",
+            songId: "50"
+        }
+
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        fetch(url, {
+                method: "post",
+                headers: headers,
+                body: JSON.stringify(ob)
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log("Poszło");
+                // console.log(res);
+            })
+        })
+
+        // Usunięcie z ulubionych
+        button3.addEventListener('click', () => {
+            const url = "http://localhost:8080/removeFavouriteSong";
+
+        const ob = {
+            userId: "aaa",
+            songId: "50"
+        }
+
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        fetch(url, {
+                method: "post",
+                headers: headers,
+                body: JSON.stringify(ob)
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log("Poszło");
+                // console.log(res);
             })
         })
     </script>
