@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const dataSchema = new Schema({
-    name: {
+    title: {
         type: String
     },
     category: {
@@ -14,7 +14,7 @@ const dataSchema = new Schema({
     text: {
         type: Array
     },
-    songId: {
+    id: {
         type: String
     }
 })

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+
+    <script>
+        const button = document.querySelector('#box');
+
+        button.addEventListener('click', () => {
+            const url = "https://music-app-pl.herokuapp.com/getData";
+
+        const ob = {
+            userId: "444",
+        }
+
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        fetch(url, {
+                method: "post",
+                headers: headers,
+                body: JSON.stringify(ob)
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log("Poszło");
+                console.log(res);
+            })
+        })
+    </script>
+</body>
+</html>
