@@ -1,3 +1,4 @@
+
 module.exports.upChord = (letter) => {
     if (letter == 'C') {
         return 'Cis';
@@ -9,11 +10,11 @@ module.exports.upChord = (letter) => {
         return 'E';
     } else if (letter == 'E') {
         return 'F';
-    } else if (letter == 'Fis') {
-        return 'F';
-    }
-    else if (letter == 'F') {
+    } else if (letter == 'F') {
         return 'Fis';
+    }
+    else if (letter == 'Fis') {
+        return 'G';
     } else if (letter == 'G') {
         return 'Gis';
     } else if (letter == 'Gis') {
@@ -34,11 +35,11 @@ module.exports.upChord = (letter) => {
         return 'e';
     } else if (letter == 'e') {
         return 'f';
-    }else if (letter == 'fis') {
-        return 'f';
-    }
-    else if (letter == 'f') {
+    }else if (letter == 'f') {
         return 'fis';
+    }
+    else if (letter == 'fis') {
+        return 'g';
     } else if (letter == 'g') {
         return 'gis';
     } else if (letter == 'gis') {
