@@ -25,20 +25,38 @@
             background: blue;
             margin-top: 20px;
         }
+
+        .box4 {
+            width: 200px;
+            height: 200px;
+            background: rgb(163, 19, 122);
+            margin-top: 20px;
+        }
+
+        .box5 {
+            width: 200px;
+            height: 200px;
+            background: rgb(16, 81, 185);
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div id="box" class="box"></div>
     <div id="box2" class="box2"></div>
     <div id="box3" class="box3"></div>
+    <div id="box4" class="box4"></div>
+    <div id="box5" class="box5"></div>
 
     <script>
         const button = document.querySelector('#box');
         const button2 = document.querySelector('#box2');
         const button3 = document.querySelector('#box3');
+        const button4 = document.querySelector('#box4');
+        const button5 = document.querySelector('#box5');
 
         button.addEventListener('click', () => {
-            const url = "http://localhost:8080/getData";
+            const url = "https://music-app-pl.herokuapp.com//getData";
 
         const ob = {
             userId: "aaa",
@@ -106,6 +124,53 @@
                 // console.log(res);
             })
         })
+
+        // Zwiększenie akordu o 1
+        button4.addEventListener('click', () => {
+            const url = "http://localhost:8080/upChord";
+
+        const ob = {
+            musicId: "61",
+        }
+
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        fetch(url, {
+                method: "post",
+                headers: headers,
+                body: JSON.stringify(ob)
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log("Poszło");
+                console.log(res);
+            })
+        })
+
+        // Zmniejszenie akordu o 1
+        button5.addEventListener('click', () => {
+            const url = "http://localhost:8080/downChord";
+
+        const ob = {
+            musicId: "61",
+        }
+
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        fetch(url, {
+                method: "post",
+                headers: headers,
+                body: JSON.stringify(ob)
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log("Poszło");
+                console.log(res);
+            })
+        })
+
     </script>
 </body>
 </html>
